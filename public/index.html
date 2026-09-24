@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAG AI Android App - Repository & Project Overview</title>
+  <style>
+    :root {
+      --primary: #1976d2;
+      --primary-dark: #0d47a1;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --border: #334155;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+    p.lead {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 24px auto;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .notice {
+      background: rgba(25, 118, 210, 0.1);
+      border-left: 4px solid var(--primary);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 32px;
+    }
+    .notice h2 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+    pre {
+      background: #020617;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      color: #38bdf8;
+      border: 1px solid var(--border);
+      margin-top: 12px;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="badge">Native Android App (Kotlin & Jetpack Compose)</div>
+    <h1>RAG AI Pipeline & Research Assistant</h1>
+    <p class="lead">
+      A mobile Retrieval-Augmented Generation (RAG) engine featuring on-device Room SQLite (FTS4), 
+      64-dimensional semantic vector search, Reciprocal Rank Fusion, PDF ingestion up to 20 documents, 
+      and clean, paragraph-based Q&A with Gemini API integration.
+    </p>
+  </header>
+
+  <div class="container">
+    <div class="notice">
+      <h2>Why is there an index.html here?</h2>
+      <p>
+        If you pushed this project from Google AI Studio to GitHub and noticed a missing <code>index.html</code> 
+        when enabling GitHub Pages: this repository is a <strong>native Android mobile application</strong> built with Gradle and Kotlin, 
+        not a web application!
+      </p>
+      <p style="margin-top: 8px;">
+        To run or install this app, you can test it directly in the <strong>Google AI Studio emulator</strong>, 
+        build the <strong>APK/AAB</strong> file using Android Studio, or install it directly onto any Android phone.
+      </p>
+    </div>
+
+    <h2>Core Architecture & Capabilities</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Hybrid RRF Search Engine</h3>
+        <p>Combines SQLite FTS4 inverted full-text keyword indexing with normalized 64-dimensional vector embeddings via Reciprocal Rank Fusion (k = 60).</p>
+      </div>
+
+      <div class="card">
+        <h3>PDF Document Ingestion</h3>
+        <p>Supports importing and indexing up to 20 technical and research PDFs with automatic text extraction, sentence chunking, and token analysis.</p>
+      </div>
+
+      <div class="card">
+        <h3>Asterisk-Free Curated Answers</h3>
+        <p>All Q&A responses are written in clean, authoritative multi-sentence paragraphs completely free of markdown asterisks or bullet clutter.</p>
+      </div>
+
+      <div class="card">
+        <h3>Offline Local RAG Fallback</h3>
+        <p>Operates autonomously even without an API key by synthesizing retrieved document chunks directly on-device with bracketed citations.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px;">
+      <h2>How to Build & Run</h2>
+      <p style="color: var(--text-muted); margin-top: 8px;">Open this repository in <strong>Android Studio</strong> or run the Gradle commands below:</p>
+      
+      <pre><code># Clone the repository
+git clone https://github.com/your-username/your-repo.git
+
+# Build the debug APK (installable on any Android phone)
+./gradlew assembleDebug
+
+# Output APK path:
+# app/build/outputs/apk/debug/app-debug.apk
+
+# Build the release Android App Bundle (for Google Play Console)
+./gradlew bundleRelease</code></pre>
+    </div>
+  </div>
+
+  <footer>
+    <p>RAG AI Research Assistant &bull; Built with Jetpack Compose & Google Gemini</p>
+  </footer>
+</body>
+</html>
