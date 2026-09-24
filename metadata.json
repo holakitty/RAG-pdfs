@@ -1,0 +1,6 @@
+{
+  "name": "RAG Pipeline AI",
+  "description": "Production-ready mobile RAG pipeline with vector database, dual chunking strategies, real-time citations, tools, and conversational memory.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
